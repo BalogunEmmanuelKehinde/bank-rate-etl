@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, text
 print("VERSION: two table load — deposits + lending rates")
 
 DB_USER = "postgres"
-DB_PASSWORD = "elric"  # replace this
+DB_PASSWORD = "your-potgres-password"  # replace this
 DB_HOST = "localhost"
 DB_PORT = "5432"
 DB_NAME = "cbn_rates"
