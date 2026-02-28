@@ -6,7 +6,7 @@ import numpy as np
 app = FastAPI(title="CBN Bank Rates API")
 
 DB_USER = "postgres"
-DB_PASSWORD = "elric"  # replace this
+DB_PASSWORD = "your-postgres-password"  # replace this
 DB_HOST = "localhost"
 DB_PORT = "5432"
 DB_NAME = "cbn_rates"
