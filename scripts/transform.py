@@ -8,7 +8,6 @@ df = pd.read_csv("data/raw/raw_interest_rates.csv")
 
 # -------------------------
 # CONSTANTS
-# -------------------------
 
 BANK_NAMES = [
     "ACCESS BANK", "ALPHA MORGAN BANK", "CITI BANK",
@@ -56,8 +55,8 @@ SECTOR_ROWS = {
 data_cols = list(df.columns[1:-1])  # skip col 0 and source_page
 
 # -------------------------
-# HELPER: clean a rate value
-# -------------------------
+# clean rate value
+
 def clean_rate(value):
     if pd.isna(value):
         return None
@@ -71,7 +70,7 @@ def clean_rate(value):
 
 # -------------------------
 # STEP 1: Deposit rates
-# -------------------------
+
 deposit_rows = {
     "demand_deposit_rate": 5,
     "savings_deposit_rate": 6,
@@ -96,7 +95,7 @@ print(f"Deposit rows: {len(deposit_df)}")
 
 # -------------------------
 # STEP 2: Lending rates
-# -------------------------
+
 lending_records = []
 for prime_row, sector in SECTOR_ROWS.items():
     max_row = prime_row + 1  # NaN row always holds MAX values
@@ -117,7 +116,7 @@ print(f"Lending rows: {len(lending_df)}")
 
 # -------------------------
 # STEP 3: Save
-# -------------------------
+
 deposit_df.to_csv("data/processed/clean_deposit_rates.csv", index=False)
 lending_df.to_csv("data/processed/clean_lending_rates.csv", index=False)
 
