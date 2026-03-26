@@ -13,7 +13,7 @@ engine = create_engine(f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}
 
 # -------------------------
 # STEP 1: Create tables
-# -------------------------
+
 ddl = """
 CREATE TABLE IF NOT EXISTS deposit_rates (
     id                   SERIAL PRIMARY KEY,
@@ -45,7 +45,7 @@ print("Tables ready.")
 
 # -------------------------
 # STEP 2: Load deposits
-# -------------------------
+
 deposit_df = pd.read_csv("data/processed/clean_deposit_rates.csv")
 deposit_df["reporting_date"] = pd.to_datetime(deposit_df["reporting_date"])
 
@@ -69,7 +69,7 @@ print(f"Loaded {len(deposit_df)} deposit rows.")
 
 # -------------------------
 # STEP 3: Load lending rates
-# -------------------------
+
 lending_df = pd.read_csv("data/processed/clean_lending_rates.csv")
 lending_df["reporting_date"] = pd.to_datetime(lending_df["reporting_date"])
 
@@ -93,7 +93,7 @@ print(f"Loaded {len(lending_df)} lending rows.")
 
 # -------------------------
 # STEP 4: Verify
-# -------------------------
+
 with engine.connect() as conn:
     d = pd.read_sql("SELECT * FROM deposit_rates LIMIT 3", conn)
     l = pd.read_sql("SELECT * FROM lending_rates LIMIT 3", conn)
