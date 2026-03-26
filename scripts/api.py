@@ -21,7 +21,7 @@ def clean_records(df):
 
 # -------------------------
 # DEPOSIT ENDPOINTS
-# -------------------------
+
 
 @app.get("/rates/deposits")
 def get_all_deposits():
@@ -43,7 +43,7 @@ def get_bank_deposits(bank_name: str):
 
 # -------------------------
 # LENDING ENDPOINTS
-# -------------------------
+
 
 @app.get("/rates/lending")
 def get_all_lending():
